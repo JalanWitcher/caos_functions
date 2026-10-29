@@ -85,7 +85,7 @@ def simulaLorenzCPP(r0, tTransiente, tSpan,
     # t, x, y, z, dx, dy, dz, tEv, xEv, yEv, zEv, status
     result = lorenz_cpp.run_simulation(r0=r0, breakpoints=bp,sigma=sigma, beta=beta, rho=rho, 
                                        varNum=varNum, dir=dir, crossVal=crossVal,max_cross=maxCross, 
-                                       trackerStartTime=tTransiente, rtol=rtol, atol=atol)
+                                       trackerStartTime=bp[-2], rtol=rtol, atol=atol)
     # Passos de Integração
     t = result[0]
     r = np.vstack(result[1:4]) # np.vstack((x,y,z)) # x, y, z = result[1:4]
